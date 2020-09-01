@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: password
+  host: localhost
+
+development:
+  <<: *default
+  database: tuubiz_development
+
+ 
+test:
+  <<: *default
+  database: tuubiz_test
+
+
+production:
+  <<: *default
+  database: tuubiz_production
+  # username: tuubiz
+  # password: <%= ENV['TUUBIZ_DATABASE_PASSWORD'] %>
